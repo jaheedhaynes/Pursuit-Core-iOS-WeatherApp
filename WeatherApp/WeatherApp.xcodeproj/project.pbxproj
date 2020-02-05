@@ -10,6 +10,9 @@
 		300C98C623EB0D1F00469F57 /* ImageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 300C98C523EB0D1F00469F57 /* ImageKit */; };
 		300C98C823EB0D3C00469F57 /* PixaBayAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300C98C723EB0D3C00469F57 /* PixaBayAPIClient.swift */; };
 		300C98CA23EB0D5800469F57 /* WeatherAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300C98C923EB0D5800469F57 /* WeatherAPIClient.swift */; };
+		300C98CC23EB0DED00469F57 /* PixaBayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300C98CB23EB0DED00469F57 /* PixaBayModel.swift */; };
+		300C98CE23EB0E0000469F57 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300C98CD23EB0E0000469F57 /* WeatherModel.swift */; };
+		300C98D023EB0EB000469F57 /* SecretKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300C98CF23EB0EB000469F57 /* SecretKeys.swift */; };
 		548CE052234D33B500B5177D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548CE051234D33B500B5177D /* AppDelegate.swift */; };
 		548CE054234D33B500B5177D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548CE053234D33B500B5177D /* SceneDelegate.swift */; };
 		548CE056234D33B500B5177D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548CE055234D33B500B5177D /* ViewController.swift */; };
@@ -22,6 +25,9 @@
 /* Begin PBXFileReference section */
 		300C98C723EB0D3C00469F57 /* PixaBayAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixaBayAPIClient.swift; sourceTree = "<group>"; };
 		300C98C923EB0D5800469F57 /* WeatherAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPIClient.swift; sourceTree = "<group>"; };
+		300C98CB23EB0DED00469F57 /* PixaBayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixaBayModel.swift; sourceTree = "<group>"; };
+		300C98CD23EB0E0000469F57 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		300C98CF23EB0EB000469F57 /* SecretKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKeys.swift; sourceTree = "<group>"; };
 		548CE04E234D33B500B5177D /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		548CE051234D33B500B5177D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		548CE053234D33B500B5177D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,9 +72,12 @@
 			children = (
 				548CE051234D33B500B5177D /* AppDelegate.swift */,
 				548CE053234D33B500B5177D /* SceneDelegate.swift */,
+				300C98CF23EB0EB000469F57 /* SecretKeys.swift */,
 				548CE065234D33E600B5177D /* ZipCodeHelper.swift */,
 				300C98C723EB0D3C00469F57 /* PixaBayAPIClient.swift */,
 				300C98C923EB0D5800469F57 /* WeatherAPIClient.swift */,
+				300C98CB23EB0DED00469F57 /* PixaBayModel.swift */,
+				300C98CD23EB0E0000469F57 /* WeatherModel.swift */,
 				548CE055234D33B500B5177D /* ViewController.swift */,
 				548CE057234D33B500B5177D /* Main.storyboard */,
 				548CE05C234D33B600B5177D /* LaunchScreen.storyboard */,
@@ -156,10 +165,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				300C98CA23EB0D5800469F57 /* WeatherAPIClient.swift in Sources */,
+				300C98CC23EB0DED00469F57 /* PixaBayModel.swift in Sources */,
 				548CE066234D33E600B5177D /* ZipCodeHelper.swift in Sources */,
 				548CE056234D33B500B5177D /* ViewController.swift in Sources */,
 				548CE052234D33B500B5177D /* AppDelegate.swift in Sources */,
+				300C98D023EB0EB000469F57 /* SecretKeys.swift in Sources */,
 				300C98C823EB0D3C00469F57 /* PixaBayAPIClient.swift in Sources */,
+				300C98CE23EB0E0000469F57 /* WeatherModel.swift in Sources */,
 				548CE054234D33B500B5177D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
