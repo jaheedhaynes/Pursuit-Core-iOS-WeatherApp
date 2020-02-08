@@ -9,28 +9,27 @@
 import Foundation
 import NetworkHelper
 
-struct WeatherAPIClient {
-    static func getWeather(latitudeLongitude: String, completion: @escaping (Result <[Climate], AppError>) -> ()) {
+struct WeatherAPI {
+    static func getLatLong(lat: Double, long: Double, completionHandler: @escaping (Result<Weather, AppError>) -> ()) {
+               
+        let endpointURL = "https://api.darksky.net/forecast/ad34a31743a4ff28cafc686c25e89787/\(lat),\(long)"
         
-        let endpointURLString = "https://api.darksky.net/forecast/\(weatherKey)/\(latitudeLongitude)"
-        
-        guard let url = URL(string: endpointURLString) else {
-            completion(.failure(.badURL(endpointURLString)))
+        guard let url = URL(string: endpointURL) else {
+            completionHandler(.failure(.badURL(endpointURL)))
             return
         }
         
-        let request = URLRequest(url:url)
-        
+        let request = URLRequest(url: url)
         NetworkHelper.shared.performDataTask(with: request) { (result) in
             switch result {
             case .failure(let appError):
-                completion(.failure(.networkClientError(appError)))
+                completionHandler(.failure(.networkClientError(appError)))
             case .success(let data):
-                do{
-                    let weather = try JSONDecoder().decode(Weather.self, from: data)
-                    completion(.success(weather.daily.data))
+                do {
+                    let weatherData = try JSONDecoder().decode(Weather.self, from: data)
+                    completionHandler(.success(weatherData))
                 } catch {
-                    completion(.failure(.decodingError(error)))
+                    completionHandler(.failure(.decodingError(error)))
                 }
             }
         }
