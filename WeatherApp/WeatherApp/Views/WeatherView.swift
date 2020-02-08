@@ -28,8 +28,8 @@ class WeatherView: UIView {
     
     public lazy var textField: UITextField = {
         let textfield = UITextField()
-        textfield.backgroundColor = .systemGray3
-        textfield.keyboardType = .numbersAndPunctuation
+        textfield.backgroundColor = .systemGray4
+        textfield.keyboardType = .numberPad
         return textfield
     }()
     
@@ -56,6 +56,7 @@ class WeatherView: UIView {
         textFieldConstraints()
         zipLabelConstraints()
     }
+    
 
     
     private func weatherLabelConstraints() {
