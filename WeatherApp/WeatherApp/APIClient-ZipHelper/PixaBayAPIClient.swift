@@ -9,33 +9,27 @@
 import Foundation
 import NetworkHelper
 
-struct ImagesAPIClient {
+struct PhotoAPI {
+    static func getPhotos(search: String, completionHandler: @escaping (Result<[Image], AppError>) -> ()) {
+        
+      let searchQuery = search.lowercased().addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "Trees"
     
-    static func getImages(with searchQuery: String, completion: @escaping (Result<[Image],AppError>) -> () ) {
-        
-        let searchQuery = searchQuery.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-        
-        let imagesEndpoint = "https://pixabay.com/api/?key=\(pixabayKey)q=\(searchQuery ?? "new york")"
-        
-        guard let url = URL(string: imagesEndpoint) else {
-            completion(.failure(.badURL(imagesEndpoint)))
+        let endpointUrl = "https://pixabay.com/api/?key=14925791-e55b93cff640b8ac69f27ee10&q=\(searchQuery)"
+        guard let url = URL(string: endpointUrl) else {
+            completionHandler(.failure(.badURL(endpointUrl)))
             return
         }
-        
         let request = URLRequest(url: url)
-        
         NetworkHelper.shared.performDataTask(with: request) { (result) in
             switch result {
             case .failure(let appError):
-                completion(.failure(.networkClientError(appError)))
-            case .success(let imageData):
-                
+                completionHandler(.failure(.networkClientError(appError)))
+            case .success(let data):
                 do {
-                    let imageInfo = try JSONDecoder().decode(PixabayImage.self, from: imageData)
-                    
-                    completion(.success(imageInfo.hits))
+                    let photoData = try JSONDecoder().decode(Pixabay.self, from: data)
+                    completionHandler(.success(photoData.hits))
                 } catch {
-                    completion(.failure(.decodingError(error)))
+                    completionHandler(.failure(.decodingError(error)))
                 }
             }
         }
